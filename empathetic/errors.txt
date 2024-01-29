@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 49: Line is indented, but the preceding call statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    menu:
+    ^
+
+Ren'Py Version: Ren'Py 7.6.3.23091805
+Sun Jan 28 22:12:00 2024
