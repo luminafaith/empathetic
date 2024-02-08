@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 49: Line is indented, but the preceding call statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    menu:
-    ^
+File "game/PhoneTexting.rpy", line 446: the xfill keyword argument was not given a value.
+    textbutton i.subject action [SetScreenVariable("current_message",i), i.mark_read]  xfill = True
+                                                                                             ^
 
 Ren'Py Version: Ren'Py 7.6.3.23091805
-Sun Jan 28 22:12:00 2024
+Mon Feb  5 21:14:07 2024

@@ -2,23 +2,79 @@
 
 While running game code:
   File "game/script.rpy", line 49, in script
-    label anna_reply(current_message):
-TypeError: Missing required positional arguments: 'current_message'
+    nvl_narrator "Added Eileen to the group"
+  File "game/script.rpy", line 49, in script
+    nvl_narrator "Added Eileen to the group"
+  File "renpy/common/00nvl_mode.rpy", line 387, in do_display
+    **display_args)
+  File "game/messages.rpy", line 44, in reply
+ScriptError: could not find label 'sa_reply'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
+  File "renpy/bootstrap.py", line 275, in bootstrap
+    renpy.main.main()
+  File "renpy/main.py", line 670, in main
+    run(restart)
+  File "renpy/main.py", line 144, in run
+    renpy.execution.run_context(True)
+  File "renpy/execution.py", line 955, in run_context
+    context.run()
   File "game/script.rpy", line 49, in script
-    label anna_reply(current_message):
-  File "renpy/ast.py", line 1081, in execute
-    values = apply_arguments(self.parameters, renpy.store._args, renpy.store._kwargs)
-  File "renpy/ast.py", line 296, in apply_arguments
-    return parameters.apply(args, kwargs, ignore_errors)
-  File "renpy/ast.py", line 234, in apply
-    ", ".join("'%s'" % i for i in missed_pos))
-TypeError: Missing required positional arguments: 'current_message'
+    nvl_narrator "Added Eileen to the group"
+  File "game/script.rpy", line 49, in script
+    nvl_narrator "Added Eileen to the group"
+  File "renpy/ast.py", line 930, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "renpy/exports.py", line 1474, in say
+    who(what, *args, **kwargs)
+  File "renpy/character.py", line 1352, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
+  File "renpy/common/00nvl_mode.rpy", line 387, in do_display
+    **display_args)
+  File "renpy/character.py", line 693, in display_say
+    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
+  File "renpy/ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "renpy/display/core.py", line 3582, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "renpy/display/core.py", line 4543, in interact_core
+    rv = root_widget.event(ev, x, y, 0)
+  File "renpy/display/layout.py", line 1179, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "renpy/display/layout.py", line 1179, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "renpy/display/layout.py", line 1179, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "renpy/display/screen.py", line 770, in event
+    rv = self.child.event(ev, x, y, st)
+  File "renpy/display/layout.py", line 1179, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "renpy/display/layout.py", line 1403, in event
+    rv = super(Window, self).event(ev, x, y, st)
+  File "renpy/display/layout.py", line 281, in event
+    rv = d.event(ev, x - xo, y - yo, st)
+  File "renpy/display/layout.py", line 1179, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "renpy/display/layout.py", line 1179, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "renpy/display/behavior.py", line 1142, in event
+    return handle_click(self.clicked)
+  File "renpy/display/behavior.py", line 1075, in handle_click
+    rv = run(action)
+  File "renpy/display/behavior.py", line 379, in run
+    return action(*args, **kwargs)
+  File "game/messages.rpy", line 44, in reply
+  File "renpy/game.py", line 349, in call_in_new_context
+    return renpy.execution.run_context(False)
+  File "renpy/execution.py", line 955, in run_context
+    context.run()
+  File "renpy/script.py", line 1013, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'sa_reply'.
 
 Windows-10-10.0.22621 AMD64
 Ren'Py 7.6.3.23091805
 empathetic 1.0
-Sun Jan 28 22:11:29 2024
+Tue Feb  6 11:26:54 2024
