@@ -2,7 +2,7 @@
 
 define nvl_mode = "phone"  ##Allow the NVL mode to become a phone conversation
 define MC_Name = "You" ##The name of the main character, used to place them on the screen
-define C1_Name = "Eileen"
+define C1_Name = "user1234"
 define C2_Name = "feeling_jenerous"
 
 init -1 python:
@@ -78,11 +78,15 @@ screen PhoneDialogue(dialogue, items=None):
                 null height 20
                 use nvl_phonetext(dialogue)
                 null height 100
-        # Button to progress
+        
         if len(items)==0: #If we don't have a menu
             button:
                 padding (0,0)
                 action RollForward()
+                xysize (10,120)
+                align(0.5,0.8)
+                text "Next" style "nvl_button"
+                
         else:
             # Phone Menu Choice
             frame:
@@ -105,7 +109,7 @@ screen PhoneDialogue(dialogue, items=None):
                                     align (0.5,0.5)
                                     text_align 0.5
                                     size 30
-                            # style "nvl_button"
+                                # style "nvl_button"
 
 screen nvl_phonetext(dialogue):
     style_prefix None
@@ -196,6 +200,7 @@ style phoneFrame_viewport:
 style phoneFrame_vbox:
     spacing 10
     xfill True
+
             
 #######################
 ##Chat Room
@@ -467,6 +472,18 @@ screen message:
                 vbar value YScrollValue("message_list")
             hbox:
                 null height 20
+            side "c r":
+                area (0,0,800,300)
+                viewport id "view_message":
+                    draggable True mousewheel True
+                    vbox:
+                        if current_message:
+                            if current_message.sender == MC_Name:
+                                text ("This is a group message")
+                            else:
+                                text ("This is a private message from " + current_message.sender)
+                                
+                vbar value YScrollValue("view_message")
             use message_commands
 
 screen message_commands:

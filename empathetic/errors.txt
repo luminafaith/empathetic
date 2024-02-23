@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/PhoneTexting.rpy", line 446: the xfill keyword argument was not given a value.
-    textbutton i.subject action [SetScreenVariable("current_message",i), i.mark_read]  xfill = True
-                                                                                             ^
+File "game/PhoneTexting.rpy", line 91: u'action' is not a keyword argument or valid child of the frame statement.
+    action RollForward()
+          ^
 
 Ren'Py Version: Ren'Py 7.6.3.23091805
-Mon Feb  5 21:14:07 2024
+Tue Feb 13 19:28:49 2024
