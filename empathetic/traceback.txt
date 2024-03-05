@@ -1,96 +1,24 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 56, in script
-    nvl_narrator "Added Eileen to the group"
-  File "renpy/common/000window.rpy", line 114, in _window_auto_callback
-    _window_show(auto=True)
-  File "renpy/common/000window.rpy", line 69, in _window_show
-    renpy.with_statement(trans)
-  File "renpy/common/00library.rpy", line 167, in _default_empty_window
-    nvl_show_core()
-  File "renpy/common/00nvl_mode.rpy", line 207, in nvl_show_core
-    return __nvl_show_screen("nvl", items=[ ])
-  File "renpy/common/00nvl_mode.rpy", line 201, in _m1_00nvl_mode__nvl_show_screen
-    return renpy.get_widget(screen_name, "what", config.nvl_layer)
-  File "game/screens.rpy", line 1299, in execute
-    screen nvl(dialogue, items=None):
-  File "game/screens.rpy", line 1299, in execute
-    screen nvl(dialogue, items=None):
-  File "game/screens.rpy", line 1302, in execute
-    if nvl_mode == "phone":
-  File "game/screens.rpy", line 1303, in execute
-    use PhoneDialogue(dialogue, items)
-  File "game/PhoneTexting.rpy", line 65, in execute
-    screen PhoneDialogue(dialogue, items=None):
-  File "game/PhoneTexting.rpy", line 65, in execute
-    screen PhoneDialogue(dialogue, items=None):
-  File "game/PhoneTexting.rpy", line 68, in execute
-    frame at phone_transform(phone_position_x, phone_position_y):
-  File "game/PhoneTexting.rpy", line 71, in execute
-    viewport:
-  File "game/PhoneTexting.rpy", line 77, in execute
-    vbox:
-  File "game/PhoneTexting.rpy", line 79, in execute
-    use nvl_phonetext(dialogue,items)
-TypeError: Too many arguments in call (expected 1, got 2).
+  File "game/script.rpy", line 76, in script
+    while !check("About future"):
+SyntaxError: invalid syntax (script.rpy, line 76)
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 56, in script
-    nvl_narrator "Added Eileen to the group"
-  File "renpy/ast.py", line 898, in execute
-    statement_name(stmt_name)
-  File "renpy/ast.py", line 47, in statement_name
-    i(name)
-  File "renpy/common/000window.rpy", line 114, in _window_auto_callback
-    _window_show(auto=True)
-  File "renpy/common/000window.rpy", line 69, in _window_show
-    renpy.with_statement(trans)
-  File "renpy/exports.py", line 1758, in with_statement
-    return renpy.game.interface.do_with(trans, paired, clear=clear)
-  File "renpy/display/core.py", line 2981, in do_with
-    clear=clear)
-  File "renpy/display/core.py", line 3557, in interact
-    self.show_window()
-  File "renpy/display/core.py", line 2960, in show_window
-    renpy.config.empty_window()
-  File "renpy/common/00library.rpy", line 167, in _default_empty_window
-    nvl_show_core()
-  File "renpy/common/00nvl_mode.rpy", line 207, in nvl_show_core
-    return __nvl_show_screen("nvl", items=[ ])
-  File "renpy/common/00nvl_mode.rpy", line 201, in _m1_00nvl_mode__nvl_show_screen
-    return renpy.get_widget(screen_name, "what", config.nvl_layer)
-  File "renpy/display/screen.py", line 1430, in get_displayable
-    screen.update()
-  File "renpy/display/screen.py", line 680, in update
-    self.screen.function(**self.scope)
-  File "game/screens.rpy", line 1299, in execute
-    screen nvl(dialogue, items=None):
-  File "game/screens.rpy", line 1299, in execute
-    screen nvl(dialogue, items=None):
-  File "game/screens.rpy", line 1302, in execute
-    if nvl_mode == "phone":
-  File "game/screens.rpy", line 1303, in execute
-    use PhoneDialogue(dialogue, items)
-  File "game/PhoneTexting.rpy", line 65, in execute
-    screen PhoneDialogue(dialogue, items=None):
-  File "game/PhoneTexting.rpy", line 65, in execute
-    screen PhoneDialogue(dialogue, items=None):
-  File "game/PhoneTexting.rpy", line 68, in execute
-    frame at phone_transform(phone_position_x, phone_position_y):
-  File "game/PhoneTexting.rpy", line 71, in execute
-    viewport:
-  File "game/PhoneTexting.rpy", line 77, in execute
-    vbox:
-  File "game/PhoneTexting.rpy", line 79, in execute
-    use nvl_phonetext(dialogue,items)
-  File "renpy/ast.py", line 252, in apply
-    (expected, len(args)))
-TypeError: Too many arguments in call (expected 1, got 2).
+  File "game/script.rpy", line 76, in script
+    while !check("About future"):
+  File "renpy/ast.py", line 2076, in execute
+    if renpy.python.py_eval(self.condition):
+  File "renpy/python.py", line 1151, in py_eval
+    code = py_compile(code, 'eval')
+  File "renpy/python.py", line 1088, in py_compile
+    raise e
+SyntaxError: invalid syntax (script.rpy, line 76)
 
 Windows-10-10.0.22621 AMD64
 Ren'Py 7.6.3.23091805
 empathetic 1.0
-Tue Feb 13 19:40:19 2024
+Sun Mar  3 21:02:29 2024

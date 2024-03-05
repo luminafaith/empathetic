@@ -4,6 +4,7 @@ define nvl_mode = "phone"  ##Allow the NVL mode to become a phone conversation
 define MC_Name = "You" ##The name of the main character, used to place them on the screen
 define C1_Name = "user1234"
 define C2_Name = "feeling_jenerous"
+define C3_Name = "G.Chas"
 
 init -1 python:
     phone_position_x = 0.5
@@ -103,12 +104,12 @@ screen PhoneDialogue(dialogue, items=None):
                             frame:
                                 background Solid("#424242")
                                 foreground None
-                                xysize (500,30)
+                                xysize (1100,30)
 
-                                text i.caption:
+                                text i.caption:  
                                     align (0.5,0.5)
                                     text_align 0.5
-                                    size 30
+                                    size 25
                                 # style "nvl_button"
 
 screen nvl_phonetext(dialogue):
@@ -142,6 +143,8 @@ screen nvl_phonetext(dialogue):
                         $ message_icon = "C1.png"
                     elif d.who == C2_Name:
                         $ message_icon = "C2.png"
+                    elif d.who == C3_Name:
+                        $ message_icon = "C3.png"
                     else:
                         $ message_icon = "phone_received_icon.png"
 
@@ -162,7 +165,7 @@ screen nvl_phonetext(dialogue):
                         
 
                         background Frame(message_frame, 23,23,23,23)
-                        xsize 450
+                        xsize 600
 
                         if d.current:
                                 at message_appear(-1)
@@ -262,6 +265,8 @@ screen chat_room_messages(room):
                         add "C1.png" at message_appear_icon()
                     elif msg.sender == C2_Name:
                         add "C2.png" at message_appear_icon()
+                    elif msg.sender == C3_Name:
+                        add "C3.png" at message_appear_icon()
                     else:
                         add "phone_received_icon.png" at message_appear_icon()
                     # Display the message text
@@ -448,6 +453,8 @@ screen message:
                                             $ icon_path = "C1.png"
                                         elif i.sender == C2_Name:
                                             $ icon_path = "C2.png"
+                                        elif i.sender == C3_Name:
+                                            $ icon_path = "C3.png"
                                         else:
                                             $ icon_path = "phone_received_icon.png"
 
@@ -461,6 +468,8 @@ screen message:
                                             $ icon_path = "C1.png"
                                         elif i.sender == C2_Name:
                                             $ icon_path = "C2.png"
+                                        elif i.sender == C3_Name:
+                                            $ icon_path = "C3.png"
                                         else:
                                             $ icon_path = "phone_received_icon.png"
 

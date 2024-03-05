@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/PhoneTexting.rpy", line 91: u'action' is not a keyword argument or valid child of the frame statement.
-    action RollForward()
-          ^
+File "game/script.rpy", line 346: expected menuitem
+    else:
+    ^
 
 Ren'Py Version: Ren'Py 7.6.3.23091805
-Tue Feb 13 19:28:49 2024
+Sun Mar  3 20:46:19 2024

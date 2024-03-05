@@ -14,6 +14,7 @@ define n = Character("You")
 define n_nvl = Character("You", kind=nvl)
 define e_nvl = Character("user1234", kind=nvl)
 define j_nvl = Character("feeling_jenerous", kind=nvl)
+define g_nvl = Character("G.Chas", kind=nvl)
             
 
 # Let's assume you have a function to initialize contacts
@@ -37,13 +38,8 @@ label start:
     show screen message_overlay
     
 
-    $ add_message("Test message", "saguaro", "sup")
+    #$ add_message("Test message", "saguaro", "sup")
     #$ add_message("Test2 message", "saguaro", "sup","sa_reply")
-    
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
-    # Example of receiving a new message  
     
     ############################################
     #in case need to test the ai algo
@@ -63,42 +59,26 @@ label start:
     e_nvl " yeah that's odd"
     j_nvl " i guess we'll just see each other around"
     j_nvl "bye for now"
-    
-    
-    #show screen chat_room_selection
-    
-    #menu (nvl = True):
-    #    "Test message":
-    #        n_nvl "Test message"
-    #        e_nvl "This is a test message."
-    #    "Test2 message":
-    #        n_nvl "Test2 message"
-    #        e_nvl "This is a test message."
-    
-    
-    #$ x = renpy.call_screen("input", prompt="What's your name?", someText = "")
-    #n_nvl "My name is [x]"
-    #n_nvl "Nice to meet you!"
-    #e_nvl "Nice to meet you too! {image=emoji/wave.png}"
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
+
+
     $ add_message("About future", "feeling_jenerous", "Hi", "jen_reply")
+    
+    
     n "There's new messages in the message box"
     n "I should check them out"
     n "You can reply to the message by clicking the reply"
-    
-    if check("About future"):
-        n "Here we go"
-    else :
+        
+    #force the player to play the game    
+    while check("About future") == False:
         n "I should check the message"
-    
-    
+        n "You can reply to the message by clicking the reply"
+                    
+        
     
     nvl_narrator "The conversation ends"
         
     
-    
+    n "The end of the game"
     #show eileen happy
 
     # These display lines of dialogue.
@@ -110,28 +90,6 @@ label start:
     # This ends the game.
 
     return
-
-
-#the chat room one 
-#label open_phone:
-#    call screen chat_room_selection
-#    
-#    return
-
-
-
-#label sa_reply(current_message):
-#    menu:
-#        "Open the message":
-#            $ current_message.reply_label = None
-#            n_nvl "[current_message.body]"
-#            e_nvl "{image=emoji/wave.png}"
-#            e_nvl "Thanks"
-#            e_nvl "Bye"
-#            $ delete_replied("Test2 message")
-#        "Ignore the message":
-#            pass
-#    return
 
 
 #First part of Jen (about future)
@@ -172,7 +130,7 @@ label jen_reply(current_message):
                 $ delete_replied("About future")
                 $ add_message("About Hobbies", "feeling_jenerous", "Hi", "jen_reply2")
                 $ add_message("Sleeping Problem", "user1234", "Hi", "lain_reply")
-                
+                $ add_message("Judgement", "G.Chas", "Hi", "gchas_reply")
                 
                 #$ x = renpy.call_screen("input", prompt="Say Something?", someText = "")
                 #$ player = renpy.input("what is your name?")
@@ -223,6 +181,7 @@ label jen_reply2(current_message):
 
 
     return
+
 #user1234 sleeping problem
 #don't know what to write the school name and game name 
 label lain_reply(current_message):
@@ -271,7 +230,126 @@ label lain_reply(current_message):
             pass
     return
 
+#Grace judgement on the conversation
+#are we going to make a different version scene for the previous conversation?
+label gchas_reply(current_message):
+    menu:
+        "Open the message":
+            $ current_message.reply_label = None
+            g_nvl "Hello"
+            n_nvl "Hi"
+            g_nvl "Could I get your opinion on something?"
+            n_nvl "Sure."
+            g_nvl "I was in a conversation with the others earlier and something happened. Here:"
 
+            # Simulating viewing a previous conversation
+            nvl_narrator "You are viewing a previous conversation."
+
+            e_nvl "Anyone on? I'm bored."
+            e_nvl "And I have that quota thing to meet."
+            j_nvl "i am."
+            e_nvl "Anything interesting happen?"
+            e_nvl "Without my gaming pc, I've been bored out of my mind."
+            j_nvl "don't you have any hobbies?"
+            e_nvl "Yeah but they're all on my pc."
+            j_nvl "surely not all of them."
+            e_nvl "Hey some people only have one hobby and that's bullying kids on Twitter."
+            
+            nvl_narrator "G.Chas is online"
+            
+            j_nvl "???"
+            e_nvl "Not that I do that!"
+            e_nvl "I'm not THAT toxic."
+            e_nvl "I just do it in game chats during matches, that's all."
+            g_nvl "Seems like I might've come in a bad time"
+            g_nvl "But my two cents is that negativity you put out in the world will inevitably come back to you in some way."
+            e_nvl "Well hi to you too."
+            e_nvl "And it's fine, I can take whatever trash talk people say during matches."
+            g_nvl "But what about outside of games? You might get a reputation for being unpleasant to talk with. It'd be harder to make friends with good people."
+            e_nvl "Eh."
+            e_nvl "It's whatever."
+            g_nvl "I just think it's something you should keep in mind. I wouldn't want you to miss out on people you can be friends with."
+            e_nvl "Yeah whatever."
+            e_nvl "I'll think about it if you get off my case."
+            e_nvl "You sure know how to nag."
+            g_nvl "I'm sorry."
+            e_nvl "It's fine."
+            e_nvl "Anyway!"
+            e_nvl "I'm still bored so."
+            e_nvl "Tell me something fun."
+            j_nvl "hmm a friend of mine is celebrating her anniversary with her s.o."
+            e_nvl "Ew relationships but congrats to her."
+            g_nvl "Congratulations! How long have they been together?"
+            j_nvl "2 years! My friend met her girlfriend in our second year of uni. they were sharing a lot of classes and hit it off as friends. a year later, they started going out."
+            e_nvl "Is getting gross what happens when you get older."
+            e_nvl "Jk jk, sounds cute I guess."
+            g_nvl "Did your friend date anyone before?"
+            j_nvl "no, which is why we (me and our other friends) thought it was nice that her first partner is good to her."
+            j_nvl "they disagree on small stuff like any pair of people do but generally they're very good together."
+            g_nvl "I see. And what about the partner?"
+            j_nvl "why are you asking? That's getting into personal territory i don't know if i'm cleared to share."
+            g_nvl "Oh, I'm sorry. I guess I was just wondering if both of them had explored all their options first."
+            e_nvl "What does that mean lol."
+            g_nvl "There are a lot of wonderful people in our lives. Ignoring half of them just feels like a disservice."
+            e_nvl "What."
+            j_nvl "what?"
+            e_nvl "Wait."
+            e_nvl "Do you mean guys?"
+            e_nvl "Because newsflash, they suck."
+            e_nvl "I'm only 15 and even I already know that."
+            g_nvl "There could be many opportunities you're missing."
+            j_nvl "sorry, do you have a problem with female friend having a girlfriend?"
+            g_nvl "It just feels weird to me that she's not giving men a chance."
+            j_nvl "so you do."
+            g_nvl "That's not what I was saying."
+            e_nvl "Uhh yeah kinda was."
+            j_nvl "look, it's not your place to judge my friend's relationship and it's definitely not your place to suggest that she's “missing opportunities” by dating a girl first. If i thought there was a problem with her partner as a person, i would've stepped in by now."
+            j_nvl "i need a break."
+            
+            nvl_narrator "Feeling_jenerous is offline"
+            
+            e_nvl "Well"
+            e_nvl "Uhh idk what to say so I'm gonna join some raids"
+            e_nvl "Bye"
+            
+            nvl_narrator "user1234 is offline"
+            
+            g_nvl "Sorry."
+            nvl_narrator "End of previous conversation."
+
+            g_nvl "It's a lot to read. I apologize for that."
+            g_nvl "It's just that the conversation hasn't been sitting well with me. I spoke my mind, just as I'd always been encouraged to. It's never been a problem before, so I don't know why it spiralled out of control like that."
+            g_nvl "The other two both suggested that I said something wrong. You're an outside perspective on this conversation. Do you agree with them?"
+            menu (nvl = True):
+                "Yes.":
+                    n_nvl "Yes."
+                    g_nvl "I see. If three whole people think so, then I must be in the wrong somehow."
+                "No.":
+                    n_nvl "No."
+                    g_nvl "Thank you, truly."
+            g_nvl "Still, I'm a bit unnerved. You three aren't like anyone I've talked to before. It makes me wonder if it's just them that act like this or if I've just spent too much time around the same type of person in my life."
+            g_nvl "Jen seemed like she flipped a dial. Lain… She was her usual self, I suppose."
+            g_nvl "I think I'm just a little shocked. I didn't think I was appearing as judgemental, but that's what Jen seemed to think."
+            g_nvl "I just feel uncomfortable with what she was saying. It's not right, at least according to my religion. God crafted us this way for a reason and not going along with His intentions feels like betraying the gift He gave us."            
+            menu (nvl = True):
+                "Not everyone follows the same god and not everyone follows a god in the first place.":           
+                    n_nvl "Not everyone follows the same god and not everyone follows a god in the first place."
+                    g_nvl "Really? But God is the only one. There isn't anyone else who can match His love for us."
+                "I think you should do some research.":
+                    n_nvl "I think you should do some research."
+                    g_nvl "You have a point. I'll do that."
+                "Even so, you kept pushing.":                           
+                    n_nvl "Even so, you kept pushing."
+                    g_nvl "Oh. I suppose I was 'nagging' again, like Lain said."
+            g_nvl "Thank you for hearing me out. I think I should take some time to think about this. You have my deepest apologies for dragging you into this."
+            
+            $ delete_replied("Judgement")
+            $ add_message("Horizon", "G.Chas", "Hi", "gchas_reply2")
+            pass
+        "Ignore the message":
+            pass
+    return
+            
 label lain_reply2(current_message):
     menu:
         "Open the message":
@@ -305,6 +383,37 @@ label lain_reply2(current_message):
             e_nvl "Thanks, mom."
             $ delete_replied("Family Situation")
             $ add_message("Lain Ending", "user1234", "Hi", "lain_end")
+            pass
+        "Ignore the message":
+            pass
+    return
+
+label gchas_reply2(current_message):
+    menu:
+        "Open the message":
+            $ current_message.reply_label = None
+            g_nvl "Hello again. I wanted to continue off our last conversation."
+            g_nvl "I'm so… confused. In the area where I live, we're all Christians and part of a community that I love. But after we talked last time, I decided to search for some information."
+            g_nvl "The world beyond my home is so much more unfamiliar than I thought. I know that all people are children of God, but apparently not all people think that way?"
+            g_nvl "And gay people are everywhere and in everything. It's like they're shoving it down our throats. I don't hate the people because I must love them as my fellow human, but… I saw people hating Christians just for existing. They called us all hateful, bigoted, and homophobic. I know that's not true. The kindest, most loving people I know could never say the things they were claiming we say."
+            menu (nvl = True):
+                "Hateful people, even if they're in the minority, will have the loudest voices.":
+                    n_nvl "Hateful people, even if they're in the minority, will have the loudest voices."
+                    g_nvl "Yeah… That's very true, isn't it? It's just that I know for a fact that it's not all Christians who act like that. I pray for people to find peace, because that is how they'll enter Heaven."
+                "A lot of people were silenced and harassed by Christians for decades":                           
+                    n_nvl "A lot of people were silenced and harassed by Christians for decades for being gay."
+                    g_nvl "I understand keeping quiet about it, because otherwise it'd turn into a huge scandal, but why call it harassment when it isn't? We're just trying to guide people back to the right path." 
+                    n_nvl "A lot of actions that don't seem like harassment from the person saying it might come off as harassment to the person hearing it."
+                    n_nvl "If someone kept nitpicking you about the way you dress or your weight and they wouldn't stop even when you tell them to, would you call it harassment?"
+                    n_nvl "You have a point."
+                "Queer people finally have a time and place to be who they are without shame.":
+                    n_nvl "Queer people finally have a time and place to be who they are without shame."
+                    g_nvl "But it is shameful because they're being so blatant about it. It makes me feel uncomfortable, like I can't be myself."
+                    n_nvl "That's exactly how they felt."
+                    g_nvl "Really? I didn't realize it was like this."
+            g_nvl "It just feels like it goes against everything we're taught, even common sense to be kind. I can't understand why gay people and my fellow Christians would say things like that."
+
+            $ delete_replied("Horizon")
             pass
         "Ignore the message":
             pass
@@ -398,6 +507,7 @@ label lain_end(current_message):
             n_nvl "What's holding you back?"
             e_nvl "It's not that easy. Honestly, maybe you should just talk to her."
             $ delete_replied("Lain Ending")
+            
 #I think there still somethings going on with the ending
             pass
         "Ignore the message":
