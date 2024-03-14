@@ -506,9 +506,58 @@ label lain_end(current_message):
             e_nvl "Not yet."
             n_nvl "What's holding you back?"
             e_nvl "It's not that easy. Honestly, maybe you should just talk to her."
+            menu (nvl = True):
+                "convince her to attempt other, more helpful methods to cope with insomnia/addiction":
+                    n_nvl "why not?"
+                    e_nvl "can you lay off with the questions? It's getting annoying."
+                    n_nvl "I'm sorry, I'm just trying to help."
+                    e_nvl "Well stop. You have no idea what my mom is like."
+                    n_nvl "You're right, I'm sorry."
+                    e_nvl "Thank you. Now, back to the REAL issue at hand, how am I going to spend the entire night without gaming?"
+                    n_nvl "You can start by logging off."
+                    e_nvl "And then what?"
+                    n_nvl "Uh, stare at the ceiling until you fall asleep?"
+                    e_nvl "ha.ha.ha. what else u got"
+                    n_nvl "Well personally, I'd read a book or something to pass the time by."
+                    e_nvl "Personally, I'd rather stare at the ceiling until I fell asleep."
+                    n_nvl "What do you have against a good book?"
+                    e_nvl "for one, they're boring."
+                    n_nvl "I mean, if you're going to be awake with no video games, you might as well make use of your time and do something worthwhile, right?"
+                    e_nvl "i guess."
+                    n_nvl "It's hard to force yourself to fall asleep if you're not tired. Reading helps destimulate my brain and quicken the process, though."
+                    e_nvl "hm."
+                    e_nvl "ugh. fine. I'll find smth to read if it means you won't nag me anymore."
+                "Enable her gaming addiction and avoidant habits even more (if the player is more hostile)":
+                    n_nvl "Stop putting it off, it'll only make it harder to talk to her."
+                    e_nvl "Honestly, maybe you should just talk to her."
+                    n_nvl "I don't think she'd take well to a stranger confronting her about her parenting…"
+                    e_nvl "Right? So maybe you can lay off on the nagging."
+                    n_nvl "Where did this hostility come from?"
+                    e_nvl "Stop doing that."
+                    n_nvl "Huh? I don't understand. I was just trying to help."
+                    e_nvl "Well stop. You clearly don't understand anything about me or my life. People like you annoy me."
+                    n_nvl "I'm sorry but you need to fix your attitude; this is probably why your mom doesn't love you."
+                    e_nvl "And you need to fix your saviour complex. It's sooo fake."
+                    n_nvl "You're never going to find the help you need if you keep pushing people away like this."
+                    e_nvl "And who said I needed help? What's wrong with how I'm living?"
+                    n_nvl "I mean, you're gaming till 7am every night which is unhealthy. Anyone can tell that you're unhappy with your circumstances."
+                    e_nvl "God, this is why I hate talking to people like you and my mom, it just makes me more annoyed. Always trying to therapize me because I don't fall into YOUR standard of what happiness is. Has it ever occurred to you that this is my standard of happiness?"
+                    n_nvl "Keep telling yourself that, see if it gets you your gaming pc back."
+                    e_nvl "I can get my stuff back myself, thank you very much."
+                    e_nvl "I regret ever telling you anything, bozo."
+                    
+                    nvl_narrator "user1234 signs off"
+                    
+                "Encourage her to confront her mom":
+                    n_nvl "Why not?"
+                    e_nvl "Can you lay off with the questions? It's getting annoying."
+                    n_nvl "I'm sorry, I'm just trying to help."
+                    e_nvl "Well stop. You have no idea what my mom is like."
+                    n_nvl "I may not know what your mom is like, but I do know how it feels to have a chip on your shoulder when it comes to your parents."
+                    e_nvl "Yeah right..."
+                    
             $ delete_replied("Lain Ending")
-            
-#I think there still somethings going on with the ending
+
             pass
         "Ignore the message":
             pass 
