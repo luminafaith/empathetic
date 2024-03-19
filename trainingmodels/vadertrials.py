@@ -1,8 +1,14 @@
 import nltk
+from nltk.tokenize import word_tokenize
 from nltk.sentiment import SentimentIntensityAnalyzer
 import pandas as pd
 import numpy as np
+import re
 from sklearn.metrics import accuracy_score,classification_report, ConfusionMatrixDisplay
+from string import punctuation
+from nltk.stem import SnowballStemmer
+from sklearn.feature_extraction.text import TfidfVectorizer as tf
+from sklearn.naive_bayes import GaussianNB
 
 test=pd.DataFrame()
 train=pd.DataFrame()
@@ -12,6 +18,7 @@ test.drop(columns=['textID','Time of Tweet', 'Age of User', 'Country', 'Populati
 train = pd.read_csv('train.csv', 
                     delimiter=',', encoding='ISO-8859-1')
 train.drop(columns=['textID','selected_text','Time of Tweet', 'Age of User', 'Country', 'Population -2020', 'Land Area (Km²)', 'Density (P/Km²)'])
+stuff_to_be_removed = list(punctuation)
 
 def vader():
     sia = SentimentIntensityAnalyzer()
@@ -41,7 +48,4 @@ def vader():
     f.close()
     print(classification_report(Y_label, Y_result))
 
-def naive_bayes():
-    
-    print("hi")
 vader()
