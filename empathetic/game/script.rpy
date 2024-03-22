@@ -15,7 +15,10 @@ define n_nvl = Character("You", kind=nvl)
 define e_nvl = Character("user1234", kind=nvl)
 define j_nvl = Character("feeling_jenerous", kind=nvl)
 define g_nvl = Character("G.Chas", kind=nvl)
-            
+
+###python
+init python:
+    import senti
 
 # Let's assume you have a function to initialize contacts
 
@@ -44,8 +47,18 @@ label start:
     ############################################
     #in case need to test the ai algo
     ############################################
-    #$ user_input = renpy.call_screen("input", prompt="Say Something?", someText = "")
-    #n_nvl "[user_input]"
+    $ user_input = renpy.call_screen("input", prompt="Say Something?", someText = "")
+    $ sentiment = senti.vader(user_input)
+        
+    if sentiment == "positive":
+        n "positive"
+    elif sentiment == "negative":
+        n "negative"
+    else:
+        n "neutral"
+        
+    
+    n_nvl "[user_input]"
     
     
     #first scene of introduction

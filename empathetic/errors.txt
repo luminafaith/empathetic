@@ -2,9 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 346: expected menuitem
-    else:
+File "game/script.rpy", line 53: Line is indented, but the preceding one-line python statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    $ file.write(user_input)
     ^
 
-Ren'Py Version: Ren'Py 7.6.3.23091805
-Sun Mar  3 20:46:19 2024
+File "game/script.rpy", line 55: Line is indented, but the preceding one-line python statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    $ sentiment = file.read()
+    ^
+
+Ren'Py Version: Ren'Py 8.2.1.24030407
+Fri Mar 22 01:04:46 2024
