@@ -18,7 +18,22 @@ define g_nvl = Character("G.Chas", kind=nvl)
 
 ###python
 init python:
-    import senti
+    import nltk
+    
+    from nltk.sentiment import SentimentIntensityAnalyzer
+
+    def vader(text):
+        sia = SentimentIntensityAnalyzer()
+        scores = sia.polarity_scores(text)
+        compound_score = scores['compound']
+        if compound_score > 0.05:
+            sentiment = 'positive'
+        elif compound_score < -0.05:
+            sentiment = 'negative'
+        else:
+            sentiment = 'neutral'
+        results = sentiment
+        return results
 
 # Let's assume you have a function to initialize contacts
 
@@ -31,7 +46,6 @@ label start:
     $ mail = []
     $ mail_queue = []
     $ contacts = []     
-    $ user_input = []
 
     # create a contact the player can send messages to
 
@@ -48,16 +62,16 @@ label start:
     #in case need to test the ai algo
     ############################################
     $ user_input = renpy.call_screen("input", prompt="Say Something?", someText = "")
-    $ sentiment = senti.vader(user_input)
+    $ sentiment = vader(user_input)
         
-    if sentiment == "positive":
+    if sentiment == 'positive':
         n "positive"
-    elif sentiment == "negative":
+    elif sentiment == '"negative':
         n "negative"
     else:
         n "neutral"
         
-    
+
     n_nvl "[user_input]"
     
     

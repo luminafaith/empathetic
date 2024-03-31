@@ -3,6 +3,7 @@ import os.path
 import sys
 
 import nltk 
+nltk.download('vader_lexicon')
 from nltk.sentiment import SentimentIntensityAnalyzer
 
 
@@ -21,6 +22,3 @@ def vader(texts):
         results.append(sentiment)
     return results
 
-# Example 
-texts = ["This is terrible."]
-sentiment_results = vader(text)

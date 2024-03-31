@@ -1,29 +1,30 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 20, in script
-    init python:
-  File "game/script.rpy", line 21, in <module>
-    import senti
-ModuleNotFoundError: No module named 'nltk'
+  File "game/script.rpy", line 67, in script
+    $ sentiments = vader(sample_texts)
+  File "game/script.rpy", line 67, in <module>
+    $ sentiments = vader(sample_texts)
+  File "game/script.rpy", line 29, in vader
+    scores = sia.polarity_scores(text)
+NameError: name 'text' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 20, in script
-    init python:
+  File "game/script.rpy", line 67, in script
+    $ sentiments = vader(sample_texts)
   File "C:\Ren\renpy-8.1.3-sdk\renpy\ast.py", line 823, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "C:\Ren\renpy-8.1.3-sdk\renpy\python.py", line 1178, in py_exec_bytecode
     exec(bytecode, globals, locals)
-  File "game/script.rpy", line 21, in <module>
-    import senti
-  File "C:\Ren\renpy-8.1.3-sdk\renpy\loader.py", line 876, in load_module
-    exec(code, mod.__dict__) # type: ignore
-  File "senti.py", line 5, in <module>
-ModuleNotFoundError: No module named 'nltk'
+  File "game/script.rpy", line 67, in <module>
+    $ sentiments = vader(sample_texts)
+  File "game/script.rpy", line 29, in vader
+    scores = sia.polarity_scores(text)
+NameError: name 'text' is not defined
 
 Windows-10-10.0.22621 AMD64
 Ren'Py 8.2.1.24030407
 empathetic 1.0
-Fri Mar 22 01:05:15 2024
+Sun Mar 24 21:19:29 2024

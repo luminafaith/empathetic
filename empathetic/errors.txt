@@ -2,13 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 53: Line is indented, but the preceding one-line python statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    $ file.write(user_input)
-    ^
-
-File "game/script.rpy", line 55: Line is indented, but the preceding one-line python statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    $ sentiment = file.read()
-    ^
+File "game/script.rpy", line 73: invalid syntax
+    num++
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Fri Mar 22 01:04:46 2024
+Sun Mar 24 21:16:34 2024
