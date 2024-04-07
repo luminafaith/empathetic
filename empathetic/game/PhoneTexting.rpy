@@ -86,7 +86,6 @@ screen PhoneDialogue(dialogue, items=None):
                 action RollForward()
                 xysize (10,120)
                 align(0.5,0.8)
-                text "Next" style "nvl_button"
                 
         else:
             # Phone Menu Choice
@@ -104,11 +103,11 @@ screen PhoneDialogue(dialogue, items=None):
                             frame:
                                 background Solid("#424242")
                                 foreground None
-                                xysize (1100,30)
-
+                                xysize (1275,30)
+                                
                                 text i.caption:  
                                     align (0.5,0.5)
-                                    text_align 0.5
+                                    
                                     size 25
                                 # style "nvl_button"
 

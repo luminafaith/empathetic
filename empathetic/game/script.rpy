@@ -61,18 +61,18 @@ label start:
     ############################################
     #in case need to test the ai algo
     ############################################
-    $ user_input = renpy.call_screen("input", prompt="Say Something?", someText = "")
-    $ sentiment = vader(user_input)
+    #$ user_input = renpy.call_screen("input", prompt="Say Something?", someText = "")
+    #$ sentiment = vader(user_input)
         
-    if sentiment == 'positive':
-        n "positive"
-    elif sentiment == '"negative':
-        n "negative"
-    else:
-        n "neutral"
+    #if sentiment == 'positive':
+    #    n "positive"
+    #elif sentiment == '"negative':
+    #    n "negative"
+    #else:
+    #    n "neutral"
         
 
-    n_nvl "[user_input]"
+    #n_nvl "[user_input]"
     
     
     #first scene of introduction
@@ -480,6 +480,37 @@ label jen_draft(contact, message_title="feeling_jenerous future decision"):
                     #ending 3
                     n "feeling_jenerous “disappears”. All her social media accounts have been deactivated in the midst of a breakdown and no one can contact her."
                     n "The other characters talk about it and express their concern. They hope she isn't going to hurt herself but no one knows for sure."
+                "Click this to enter your thought":
+                    $ user_input1 = renpy.call_screen("input", prompt="Say Something?", someText = "")
+                    $ senti1 = vader(user_input1)
+        
+                    if senti1 == 'positive':
+                        n_nvl "[user_input1]"
+                        n_nvl "You can switch programs to something you like, right?"
+                        j_nvl "i mean"
+                        j_nvl "yeah i could"
+                        j_nvl "i'm already this far in my program though, so i don't know if it'd be worth it to switch entirely"
+                        j_nvl "but doing art… i like that idea"
+                        j_nvl "i'll give it some thought"
+                        $ add_message("Jen Ending", "feeling_jenerous", "Hi", "jen_reply_end2")
+                    elif senti1 == '"negative':
+                        n_nvl "[user_input1]"
+                        n_nvl "I don't know"
+                        j_nvl "that's okay"
+                        j_nvl "it's not really fair of me to decide for me"
+                        j_nvl "i just… "
+                        j_nvl "…"
+                        j_nvl "i think i need a break"
+                        #ending 3
+                        n "feeling_jenerous “disappears”. All her social media accounts have been deactivated in the midst of a breakdown and no one can contact her."
+                        n "The other characters talk about it and express their concern. They hope she isn't going to hurt herself but no one knows for sure."                            
+                    else:
+                        n_nvl "[user_input1]"
+                        j_nvl "hm"
+                        j_nvl "i guess that is kind of my only option huh"
+                        j_nvl "yeah i mean i've already made it this far"
+                        j_nvl "it'd be a waste of everyone's time if i didn't finish it"
+                        $ add_message("Jen Ending", "feeling_jenerous", "Hi", "jen_reply_end1")
         "Ignore the message":
             pass
 
