@@ -438,6 +438,24 @@ label gchas_reply2(current_message):
                     g_nvl "But it is shameful because they're being so blatant about it. It makes me feel uncomfortable, like I can't be myself."
                     n_nvl "That's exactly how they felt."
                     g_nvl "Really? I didn't realize it was like this."
+                "Click this to enter your thought":
+                    $ user_input = renpy.call_screen("input", prompt="Say Something?", someText = "")
+                    $ senti = vader(user_input)
+                    if senti == 'positive':
+                        n_nvl "[user_input]"
+                        g_nvl "But it is shameful because they're being so blatant about it. It makes me feel uncomfortable, like I can't be myself."
+                        n_nvl "That's exactly how they felt."
+                        g_nvl "Really? I didn't realize it was like this."
+                    elif senti == 'negative':
+                        n_nvl "[user_input]"                                        
+                        g_nvl "I understand keeping quiet about it, because otherwise it'd turn into a huge scandal, but why call it harassment when it isn't? We're just trying to guide people back to the right path." 
+                        n_nvl "A lot of actions that don't seem like harassment from the person saying it might come off as harassment to the person hearing it."
+                        n_nvl "If someone kept nitpicking you about the way you dress or your weight and they wouldn't stop even when you tell them to, would you call it harassment?"
+                        n_nvl "You have a point."
+                    else:
+                        n_nvl "[user_input]"
+                        g_nvl "Yeah… That's very true, isn't it? It's just that I know for a fact that it's not all Christians who act like that. I pray for people to find peace, because that is how they'll enter Heaven."
+                    
             g_nvl "It just feels like it goes against everything we're taught, even common sense to be kind. I can't understand why gay people and my fellow Christians would say things like that."
 
             $ delete_replied("Horizon")
