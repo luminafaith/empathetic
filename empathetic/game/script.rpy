@@ -76,11 +76,13 @@ label start:
     
     
     #first scene of introduction
-    nvl_narrator "Added Eileen to the group"
-    nvl_narrator "Added Jen to the group"
+    nvl_narrator "Added feeling_jenerous to the group"
+    nvl_narrator "Added G.Chas to the group"
+    nvl_narratpr "Added user1234 to the group"
     n_nvl "{image=emoji/wave.png}"
     j_nvl "{image=emoji/wave.png}"
     e_nvl "{image=emoji/wave.png}"
+    g_nvl "{image=emoji/wave.png}"
     j_nvl " hi, you can just call me jen"
     j_nvl " i didn't think they'd actually just randomly sort us like this"
     e_nvl " yeah that's odd"
