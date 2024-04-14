@@ -1,30 +1,24 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 67, in script
-    $ sentiments = vader(sample_texts)
-  File "game/script.rpy", line 67, in <module>
-    $ sentiments = vader(sample_texts)
-  File "game/script.rpy", line 29, in vader
-    scores = sia.polarity_scores(text)
-NameError: name 'text' is not defined
+  File "game/script.rpy", line 81, in script
+    nvl_narratpr "Added user1234 to the group"
+Exception: Sayer 'nvl_narratpr' is not defined.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 67, in script
-    $ sentiments = vader(sample_texts)
-  File "C:\Ren\renpy-8.1.3-sdk\renpy\ast.py", line 823, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "C:\Ren\renpy-8.1.3-sdk\renpy\python.py", line 1178, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "game/script.rpy", line 67, in <module>
-    $ sentiments = vader(sample_texts)
-  File "game/script.rpy", line 29, in vader
-    scores = sia.polarity_scores(text)
-NameError: name 'text' is not defined
+  File "game/script.rpy", line 81, in script
+    nvl_narratpr "Added user1234 to the group"
+  File "C:\Ren\renpy-8.1.3-sdk\renpy\ast.py", line 2557, in execute
+    Say.execute(self)
+  File "C:\Ren\renpy-8.1.3-sdk\renpy\ast.py", line 575, in execute
+    who = eval_who(self.who, self.who_fast)
+  File "C:\Ren\renpy-8.1.3-sdk\renpy\ast.py", line 464, in eval_who
+    raise Exception("Sayer '%s' is not defined." % who)
+Exception: Sayer 'nvl_narratpr' is not defined.
 
-Windows-10-10.0.22621 AMD64
+Windows-10-10.0.22631 AMD64
 Ren'Py 8.2.1.24030407
 empathetic 1.0
-Sun Mar 24 21:19:29 2024
+Sat Apr 13 22:21:52 2024

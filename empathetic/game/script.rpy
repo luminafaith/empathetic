@@ -78,7 +78,7 @@ label start:
     #first scene of introduction
     nvl_narrator "Added feeling_jenerous to the group"
     nvl_narrator "Added G.Chas to the group"
-    nvl_narratpr "Added user1234 to the group"
+    nvl_narrator "Added user1234 to the group"
     n_nvl "{image=emoji/wave.png}"
     j_nvl "{image=emoji/wave.png}"
     e_nvl "{image=emoji/wave.png}"
